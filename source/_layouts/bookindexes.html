@@ -1,0 +1,38 @@
+---
+layout: page
+---
+
+{% assign sorted_pages = (site.pages | sort: "url" ) %}
+
+<div class="container-fluid"> 
+<table class="table"> 
+<tr>
+<td class="active">Книжный Индекс</td>
+<td class="active">Автор</td>
+<td class="active">Название Книги</td>
+<td class="active">Том</td>
+<td class="active">Количество томов</td>
+<td class="active">Количество страниц</td>
+<td class="active">Издательство</td>
+<td class="active">Год Издания</td>
+</tr>
+
+{% for page in sorted_pages %}
+    {% if page.pagetype %}
+		{% if page.pagetype == "bookindex" %}	
+<tr>
+<td class="active"><a class="btn btn-default" href=" {{ page.url }}" role="button">{{ page.bookindex }}</a></td>
+<td class="active"> {{ page.bookauthor }}</td>
+<td class="active"> {{ page.bookname }}</td>
+<td class="active"> {{ page.bookvolume }}</td>
+<td class="active"> {{ page.bookvolumes }}</td>
+<td class="active"> {{ page.bookfilecount }}</td>
+<td class="active"> {{ page.bookpublisher }}</td>
+<td class="active"> {{ page.bookpublishedyear }}</td>
+</tr>
+    		{% endif %}
+	{% endif %}
+{% endfor %}
+</tr>
+</table>
+</div>

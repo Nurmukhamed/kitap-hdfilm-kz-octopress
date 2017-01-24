@@ -1,0 +1,38 @@
+---
+layout: page
+---
+
+
+<div class="container-fluid"> 
+<div class="row">
+
+<div class="col-md-8">
+<table class="table">
+<tr>
+<td class="active">Тип</td>
+{% if page.booklinktype %}
+<td class="active">{{ page.booklinktype }}</td>
+{% else%}
+<td class="active"></td>
+{% endif %}
+</tr>
+<tr>
+<td class="active">Описание</td>
+{% if page.booklinkname %}
+<td class="active"> {{ page.booklinkname }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+<tr>
+<td class="active">URL</td>
+{% if page.booklinkurl %}
+<td class="active"> {{ page.booklinkurl }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+</table>
+</div>
+</div>
+

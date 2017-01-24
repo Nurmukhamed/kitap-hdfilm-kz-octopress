@@ -1,0 +1,135 @@
+---
+layout: page
+---
+
+{% assign sorted_pages = (site.pages | sort: "title" ) %}
+
+<div class="container-fluid"> 
+<div class="row">
+
+<div class="col-md-4">
+<img src="{{ root.url }}/images/midsize/{{ page.bookmedia }}.jpg" alt="альтернативный текст">
+</div>
+
+{% for spage in sorted_pages %}
+	{% if spage.pagetype %}
+		{% if spage.pagetype == "bookindex" %}
+			{% if page.bookindex == spage.bookindex %}
+<div class="col-md-8">
+<table class="table">
+<tr>
+<td class="active">Автор</td>
+{% if spage.bookauthor %}
+<td class="active">{{ spage.bookauthor }}</td>
+{% else%}
+<td class="active"></td>
+{% endif %}
+</tr>
+<tr>
+<td class="active">Название Книги</td>
+{% if spage.bookname %}
+<td class="active"> {{ spage.bookname }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+<tr>
+<td class="active">Том</td>
+{% if spage.bookvolume %}
+<td class="active"> {{ spage.bookvolume }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Количество Томов</td>
+{% if spage.bookvolumes %}
+<td class="active"> {{ spage.bookvolumes }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Количество страниц</td>
+{% if spage.bookfilecount %}
+<td class="active">{{ spage.bookfilecount }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Издательство</td>
+{% if spage.bookpublisher %}
+<td class="active">{{ spage.bookpublisher }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Год Издания</td>
+{% if spage.bookpublishedyear %}
+<td class="active">{{ spage.bookpublishedyear }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Количество файлов</td>
+{% if page.bookfilescount %}
+<td class="active">{{ page.bookfilescount }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Формат данных</td>
+{% if page.bookmediaformat %}
+<td class="active">{{ page.bookmediaformat }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Качество сканирования</td>
+{% if page.bookmediaquality %}
+<td class="active">{{ page.bookmediaquality }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Занимаемый объем<td>
+{% if page.bookmediasize %}
+<td class="active">{{ page.bookmediasize }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+</table>
+</div>
+ 			{% endif%}
+		{% endif%}
+	{% endif%}
+{% endfor%}
+
+<div class="col-md-12">
+<table class="table">
+<tr>
+<td class="active">Тип</td>
+<td class="active">Описание</td>
+</tr>
+{% for spage in sorted_pages %}
+	{% if spage.pagetype %}
+		{% if spage.pagetype == "booklink" %}
+			{% if page.bookmedia == spage.bookmedia %}
+<tr>
+{% if spage.booklinktype %}
+<td class="active">{{ spage.booklinktype }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+{% if spage.booklinkurl %}
+<td class="active"><a class="btn btn-default" href="{{ spage.booklinkurl }}" role="button">{{ spage.booklinkname }}</a></td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+			{% endif %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+</table>
+</div>
+</div>

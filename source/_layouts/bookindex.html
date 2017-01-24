@@ -1,0 +1,100 @@
+---
+layout: page
+---
+
+{% assign sorted_pages = (site.pages | sort: "title" ) %}
+
+<div class="container-fluid"> 
+<div class="row">
+<div class="col-md-4">
+<img src="{{ root.url }}/images/{{ page.bookindex }}.jpg" alt="альтернативный текст">
+</div>
+<div class="col-md-8">
+<table class="table">
+<tr>
+<td class="active">Автор</td>
+{% if page.bookauthor %}
+<td class="active">{{ page.bookauthor }}</td>
+{% else%}
+<td class="active"></td>
+{% endif %}
+</tr>
+<tr>
+<td class="active">Название Книги</td>
+{% if page.bookname %}
+<td class="active"> {{ page.bookname }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+<tr>
+<td class="active">Том</td>
+{% if page.bookvolume %}
+<td class="active"> {{ page.bookvolume }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Количество Томов</td>
+{% if page.bookvolumes %}
+<td class="active"> {{ page.bookvolumes }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Количество страниц</td>
+{% if page.bookfilecount %}
+<td class="active">{{ page.bookfilecount }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Издательство</td>
+{% if page.bookpublisher %}
+<td class="active">{{ page.bookpublisher }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr><tr>
+<td class="active">Год Издания</td>
+{% if page.bookpublishedyear %}
+<td class="active">{{ page.bookpublishedyear }}</td>
+{% else %}
+<td class="active"></td>
+{% endif %}
+</tr>
+</table>
+</div>
+</div>
+
+<div class="raw">
+<div class="col-md-6">
+<table class="table"> 
+<tr>
+<td class="active">Медиа Индекс</td>
+<td class="active">Количество файлов</td>
+<td class="active">Формат</td>
+<td class="active">Качество</td>
+<td class="active">Размер</td>
+</tr>
+
+
+{% for spage in sorted_pages %}
+	{% if spage.pagetype %}
+		{% if spage.pagetype == "bookmedia" %}
+			{% if page.bookindex == spage.bookindex %}
+<tr>
+<td class="active"><a class="btn btn-default" href=" {{ spage.url }}" role="button">{{ spage.bookmedia }}</a></td>
+<td class="active">{{ spage.bookmediafilescount }}</td>
+<td class="active">{{ spage.bookmediaformat }}</td>
+<td class="active">{{ spage.bookmediaquality }}</td>
+<td class="active">{{ spage.bookmediasize }}</td>
+</tr>
+ 			{% endif%}
+		{% endif%}
+	{% endif%}
+{% endfor%}
+</table>
+</div>
+</div>
+</div>
