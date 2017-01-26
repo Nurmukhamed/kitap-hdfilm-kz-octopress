@@ -1,3 +1,4 @@
 #!/bin/bash
 # build Octopress 
-rake generate
+bundle exec rake update
+bundle exec rake generate
