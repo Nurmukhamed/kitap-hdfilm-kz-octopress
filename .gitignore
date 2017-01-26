@@ -1,4 +1,6 @@
 _config.yml
 Rakefile
 public
-
+deploykey
+deploykey.pub
+Gemfile.lock
