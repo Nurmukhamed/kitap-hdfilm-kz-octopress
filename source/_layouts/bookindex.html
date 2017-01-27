@@ -7,7 +7,7 @@ layout: page
 <div class="container-fluid"> 
 <div class="row">
 <div class="col-md-4">
-<img src="{{ root.url }}/images/{{ page.bookindex }}.jpg" alt="альтернативный текст">
+<img src="{{ root.url }}/images/{{ page.bookindex }}.jpg" alt="{{ page.bookname}}">
 </div>
 <div class="col-md-8">
 <table class="table">
@@ -78,6 +78,7 @@ layout: page
 <td class="active">Размер</td>
 </tr>
 
+<p>Книга доступна в следующих графических форматах</p>
 
 {% for spage in sorted_pages %}
 	{% if spage.pagetype %}
