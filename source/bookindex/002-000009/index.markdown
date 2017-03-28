@@ -9,7 +9,7 @@ pagetype: bookindex
 bookindex: 002-000009
 bookauthor: Мұхтар Әуезов
 bookname: Шығармалар-Мақалалар, Зерттеулер
-bookvolume: 9
+bookvolume: 7
 bookvolumes: 12
 bookfilecount: 265
 bookpublisher: Жазушы
