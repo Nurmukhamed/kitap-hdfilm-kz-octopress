@@ -7,7 +7,7 @@ sharing: true
 footer: true
 pagetype: bookmedia 
 bookmedia: 001-000090
-bookindex: 002-000028
+bookindex: 002-000029
 bookmediaformat: DJVU
 bookmediaquality: 600DPI_BW
 bookmediasize: 0.00Gb
